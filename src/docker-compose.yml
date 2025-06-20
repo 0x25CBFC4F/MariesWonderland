@@ -1,0 +1,12 @@
+﻿services:
+  nierserver:
+    build: .
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+    ports:
+      - "7776:7776"
+      - "7777:7777"
+    volumes:
+      - "./cert.pfx:/mnt/certs/root.pfx:ro"
+ 

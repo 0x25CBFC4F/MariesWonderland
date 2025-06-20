@@ -10,8 +10,8 @@ public static class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Enforce HTTP/2
-        builder.WebHost.ConfigureKestrel(options => options.ListenLocalhost(7777, x => x.Protocols = HttpProtocols.Http2));
-        builder.WebHost.ConfigureKestrel(options => options.ListenLocalhost(7776, x =>
+        builder.WebHost.ConfigureKestrel(options => options.ListenAnyIP(7777, x => x.Protocols = HttpProtocols.Http2));
+        builder.WebHost.ConfigureKestrel(options => options.ListenAnyIP(7776, x =>
         {
             x.UseHttps();
             x.Protocols = HttpProtocols.Http2;
